@@ -5,7 +5,14 @@ const createConfig = require('uni-config-center')
 const uniIdConfig = createConfig({
 	pluginId: 'uni-id'
 }).config()
-const db = uniCloud.database()
+/* const db = uniCloud.database() */
+
+const db = uniCloud.init({
+  provider: 'aliyun',
+  spaceId: '1824d665-d8f3-4d26-9297-be68a5edc235',
+  clientSecret: 'sXjNLOasJ0xDWV4+G4lC/w=='
+}).database();
+
 const dbCmd = db.command
 const usersDB = db.collection('uni-id-users')
 exports.main = async (event, context) => {
